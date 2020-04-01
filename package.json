@@ -1,11 +1,32 @@
 {
   "name": "4earth-covid19",
+  "description": "monorepo",
   "version": "0.0.0",
   "private": true,
-  "description": "monorepo",
+  "scripts": {
+    "find-in-package-json": "ag -G '.*package.json' --ignore 'node_modules'",
+    "_postinstall": "echo 'Something need to do after install'",
+    "postinstall": "test -n \"$NO_YARN_POSTINSTALL\" || yarn _postinstall"
+  },
+  "devDependencies": {
+    "@ken0x0a/configs": "2.6.8"
+  },
   "workspaces": {
     "packages": [
       "apps/*"
     ]
-  }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/@ken0x0a/commit-config",
+      "maxHeaderWidth": 100,
+      "maxLineWidth": 100,
+      "defaultType": "chore",
+      "defaultScope": "",
+      "defaultSubject": "--",
+      "defaultBody": "",
+      "defaultIssues": ""
+    }
+  },
+  "prettier": "@ken0x0a/prettier-config"
 }
