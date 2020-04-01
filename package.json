@@ -9,11 +9,13 @@
     "postinstall": "test -n \"$NO_YARN_POSTINSTALL\" || yarn _postinstall"
   },
   "devDependencies": {
-    "@ken0x0a/configs": "2.6.8"
+    "@ken0x0a/configs": "2.6.8",
+    "@types/node": "^12.12.0"
   },
   "workspaces": {
     "packages": [
-      "apps/*"
+      "apps/*",
+      "servers/*"
     ]
   },
   "config": {
