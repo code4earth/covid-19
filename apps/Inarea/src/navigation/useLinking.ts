@@ -1,8 +1,8 @@
-import { useLinking } from '@react-navigation/native';
-import { Linking } from 'expo';
+import { useLinking as useLinkingOrig } from '@react-navigation/native'
+import { Linking } from 'expo'
 
-export default function(containerRef) {
-  return useLinking(containerRef, {
+export function useLinking(containerRef) {
+  return useLinkingOrig(containerRef, {
     prefixes: [Linking.makeUrl('/')],
     config: {
       Root: {
@@ -14,5 +14,5 @@ export default function(containerRef) {
         },
       },
     },
-  });
+  })
 }
