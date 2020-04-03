@@ -1,10 +1,31 @@
 import * as WebBrowser from 'expo-web-browser'
 import * as React from 'react'
 import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler'
+import { RectButton, ScrollView } from 'react-native-gesture-handler'
 import { MonoText } from '../components/StyledText'
 
 export default function HomeScreen() {
+  const wsRef = React.useRef<WebSocket>()
+  React.useEffect(() => {
+    return () => {
+      wsRef.current?.close()
+    }
+  }, [])
+  const connectToWs = React.useCallback(() => {
+    wsRef.current?.close()
+
+    const ws = new WebSocket('wss://192.168.11.45:3035/some-path', undefined, {
+      // const ws = new WebSocket('wss://be532a3d.ap.ngrok.io/some-path', undefined, {
+      headers: { someHeader: 'is allowed?' },
+    })
+    wsRef.current = ws
+    ws.onopen = () => {
+      ws.send('{"message":"it works!!"}')
+    }
+    ws.onmessage = (event) => {
+      console.log('[ws] received', event.data)
+    }
+  }, [])
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -19,6 +40,17 @@ export default function HomeScreen() {
           />
         </View>
 
+        <RectButton
+          onPress={connectToWs}
+          style={{
+            height: 55,
+            backgroundColor: 'pink',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Text>Open WS</Text>
+        </RectButton>
         <View style={styles.getStartedContainer}>
           <DevelopmentModeNotice />
 
@@ -49,10 +81,6 @@ export default function HomeScreen() {
       </View>
     </View>
   )
-}
-
-HomeScreen.navigationOptions = {
-  header: null,
 }
 
 function DevelopmentModeNotice() {
