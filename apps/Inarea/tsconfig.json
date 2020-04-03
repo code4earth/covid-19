@@ -1,0 +1,4 @@
+{
+  "extends": "@ken0x0a/tsconfig/react-native",
+  "include": ["src", "App.ts"]
+}

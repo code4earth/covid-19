@@ -1,0 +1,34 @@
+{
+  "name": "@sls/websocket",
+  "version": "1.0.0",
+  "description": "Websocket function @ aws lambda",
+  "main": "src/handler.ts",
+  "private": true,
+  "scripts": {
+    "dev": "SLS_DEBUG=* sls offline start"
+  },
+  "workspaces": {
+    "nohoist": [
+      "aws-sdk",
+      "source-map-support"
+    ]
+  },
+  "dependencies": {
+    "source-map-support": "0.5.16"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "8.10.47",
+    "@types/node": "13.9.8",
+    "aws-sdk": "2.651.0",
+    "fork-ts-checker-webpack-plugin": "4.1.2",
+    "serverless-dynamodb-local": "0.2.39",
+    "serverless-offline": "6.1.3",
+    "serverless-webpack": "5.3.1",
+    "ts-loader": "6.2.2",
+    "typescript": "3.8.3",
+    "webpack": "4.42.1",
+    "webpack-node-externals": "1.7.2"
+  },
+  "author": "Ken Owada <2770219+ken0x0a@users.noreply.github.com>",
+  "license": "MIT"
+}
