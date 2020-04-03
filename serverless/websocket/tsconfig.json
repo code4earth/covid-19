@@ -1,4 +1,5 @@
 {
+  "extends": "@ken0x0a/tsconfig/base",
   "compilerOptions": {
     "lib": ["es2017"],
     "removeComments": true,
@@ -9,7 +10,7 @@
     "target": "es2017",
     "outDir": "lib"
   },
-  "include": ["./**/*.ts"],
+  "include": ["**/*.ts"],
   "exclude": [
     "node_modules/**/*",
     ".serverless/**/*",
