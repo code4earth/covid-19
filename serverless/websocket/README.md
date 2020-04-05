@@ -13,4 +13,9 @@ $ 1.26 / million
 - https://github.com/dherault/serverless-offline#websocket
 - https://github.com/dherault/serverless-offline/tree/master/examples/events/websocket
 
-
+---
+- https://github.com/search?q=api+gateway+websocket+example
+- https://github.com/dsandor/example-ws-gateway-sam/blob/master/index.js
+- https://github.com/AdenForshaw/serverless-api-gateway-websockets/blob/master/serverless.yml
+- https://github.com/MaxwellGBrown/aws_api_gateway_websocket_example
+- https://github.com/MaxwellGBrown/aws_websockets_eventbus
